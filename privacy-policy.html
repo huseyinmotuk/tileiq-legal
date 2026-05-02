@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tile-IQ — Privacy Policy</title>
   <style>
+    :root { color-scheme: light; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -76,9 +77,12 @@
   <div class="card">
     <h2>📋 Overview</h2>
     <p>
-      Tile-IQ ("we", "our", or "the app") is a score tracking application for 101 Okey
-      and Classic Okey card games. We are committed to protecting your privacy.
-      This policy explains what data is collected, why, and how it is handled.
+      Tile-IQ ("we", "our", or "the app") is a score tracking application for
+      101 Okey, Classic Okey, and Rummikub tile games. We are committed to
+      protecting your privacy. This policy explains what data is collected,
+      why, and how it is handled. The same policy applies to the app whether
+      it is downloaded from the <span class="badge">APP STORE</span> or the
+      <span class="badge">GOOGLE PLAY</span>.
     </p>
     <p>
       This application is developed and maintained by an individual developer.
@@ -90,23 +94,33 @@
   <div class="card">
     <h2>📦 Data We Collect</h2>
     <p>Tile-IQ does <strong>not</strong> require account registration and does
-    <strong>not</strong> store any data on external servers.</p>
-    <p>All game data (player names, scores, game history) is stored
-    <strong>locally on your device only</strong> using SQLite and
-    SharedPreferences. This data never leaves your device.</p>
+    <strong>not</strong> store any data on external servers controlled by us.</p>
+    <p>All game data (player names you type in, scores, game history, achievements)
+    is stored <strong>locally on your device only</strong> using SQLite,
+    SharedPreferences, and the platform's secure storage (Android Keystore on
+    Android, Keychain on iOS). This data never leaves your device.</p>
     <p>The following data may be collected by third-party SDKs integrated in the app:</p>
     <ul>
       <li>
         <strong>Google AdMob</strong> — displays advertisements. AdMob may collect
-        advertising identifiers (such as Android Advertising ID), device information,
-        and approximate location to serve relevant ads. This is governed by
+        advertising identifiers (the Android Advertising ID on Android, or the IDFA
+        on iOS — only after you grant permission via the App Tracking Transparency
+        prompt), device information, and approximate location to serve relevant ads.
+        This is governed by
         <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.
       </li>
       <li>
-        <strong>Google Play Billing</strong> — processes in-app subscription purchases.
-        Payment and billing information is handled entirely by Google Play and is
-        governed by
+        <strong>Google Play Billing (Android)</strong> — processes in-app subscription
+        purchases on Android. Payment and billing information is handled entirely by
+        Google Play and is governed by
         <a href="https://play.google.com/about/play-terms/" target="_blank">Google Play Terms of Service</a>.
+        We do not receive or store any payment details.
+      </li>
+      <li>
+        <strong>Apple In-App Purchase (iOS)</strong> — processes in-app subscription
+        purchases on iOS. Payment and billing information is handled entirely by
+        Apple and is governed by the
+        <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank">Apple Media Services Terms</a>.
         We do not receive or store any payment details.
       </li>
     </ul>
@@ -116,10 +130,10 @@
     <h2>🔒 Data We Do NOT Collect</h2>
     <ul>
       <li>We do not collect your name, email address, or any personal identifiers.</li>
-      <li>We do not use analytics SDKs (no Firebase Analytics, no Crashlytics).</li>
-      <li>We do not share any data with third parties beyond AdMob and Google Play Billing.</li>
+      <li>We do not use analytics SDKs (no Firebase Analytics, no Crashlytics, no Mixpanel).</li>
+      <li>We do not share any data with third parties beyond the SDKs listed above.</li>
       <li>We do not sell your data.</li>
-      <li>We do not access your contacts, camera, microphone, or location.</li>
+      <li>We do not access your contacts, camera, microphone, precise location, or background location.</li>
     </ul>
   </div>
 
@@ -130,8 +144,8 @@
     </p>
     <ul>
       <li>Game history and scores (SQLite database)</li>
-      <li>App preferences such as sound settings and language selection (SharedPreferences)</li>
-      <li>Subscription status — whether ads have been removed (SharedPreferences)</li>
+      <li>App preferences such as sound settings and language selection (SharedPreferences / UserDefaults)</li>
+      <li>Subscription status — whether ads have been removed (encrypted secure storage: Android Keystore / iOS Keychain)</li>
     </ul>
     <p>
       This data is only accessible to the app and is deleted when you uninstall
@@ -140,15 +154,26 @@
   </div>
 
   <div class="card">
+    <h2>🔐 Permissions We Request</h2>
+    <ul>
+      <li><strong>Internet &amp; Network state</strong> — to load advertisements and verify subscription status.</li>
+      <li><strong>Photo library "add only" (iOS)</strong> — only triggered when you explicitly tap "Save PDF to Gallery" on a score card.</li>
+      <li><strong>Storage (Android &lt; 10)</strong> — only when sharing a generated PDF on legacy Android versions.</li>
+      <li><strong>App Tracking Transparency (iOS 14.5+)</strong> — to enable personalised advertising. Optional. You may decline; ads will still be shown but not personalised.</li>
+    </ul>
+  </div>
+
+  <div class="card">
     <h2>💳 In-App Purchases &amp; Subscriptions</h2>
     <p>
       Tile-IQ offers an optional monthly subscription ("Remove Ads") processed
-      through Google Play Billing. We do not collect or store any payment or
-      billing information. All transactions are handled securely by Google.
+      through Google Play Billing on Android and Apple In-App Purchase on iOS.
+      We do not collect or store any payment or billing information. All
+      transactions are handled securely by Google or Apple.
     </p>
     <p>
-      Subscriptions can be managed or cancelled at any time through your
-      Google Play account settings.
+      Subscriptions can be managed or cancelled at any time through your Google
+      Play account settings (Android) or your Apple ID subscription settings (iOS).
     </p>
   </div>
 
@@ -158,8 +183,12 @@
       The free version of Tile-IQ displays advertisements provided by Google AdMob.
       AdMob may use cookies and similar technologies to serve personalised ads based
       on your interests. You can opt out of personalised advertising in your device
-      settings under <strong>Google → Ads → Opt out of Ads Personalisation</strong>.
+      settings:
     </p>
+    <ul>
+      <li><strong>Android:</strong> Settings → Google → Ads → Opt out of Ads Personalisation</li>
+      <li><strong>iOS:</strong> Settings → Privacy &amp; Security → Tracking → revoke permission for Tile-IQ</li>
+    </ul>
     <p>
       Users who purchase the "Remove Ads" subscription will not see any advertisements.
     </p>
@@ -181,8 +210,9 @@
       If you are located in the European Economic Area (EEA), you have certain rights
       under the General Data Protection Regulation (GDPR), including the right to
       access, rectify, or erase personal data. Since we do not collect personal data
-      directly, these rights primarily apply to data collected by Google AdMob and
-      Google Play. Please refer to Google's privacy controls for exercising these rights.
+      directly, these rights primarily apply to data collected by Google AdMob,
+      Google Play, and Apple. Please refer to Google's and Apple's privacy controls
+      for exercising these rights.
     </p>
   </div>
 
@@ -207,7 +237,7 @@
     </p>
   </div>
 
-  <p class="updated">Last updated: April 2026</p>
+  <p class="updated">Last updated: May 2026</p>
 
 </div>
 </body>
